@@ -1,0 +1,18 @@
+<div class="container">
+  <button mat-raised-button color="primary" (click)="goHome()">Ir a inicio</button>
+
+  <mat-tab-group>
+    <mat-tab label="Tipos de vehículos">
+      <ul class="brand-list">
+        <li *ngFor="let type of vehicleTypes" class="brand-item">{{ type.VehicleTypeName }}</li>
+      </ul>
+    </mat-tab>
+    <mat-tab label="Modelos">
+      <cdk-virtual-scroll-viewport itemSize="itemSize" class="scroll-viewport">
+        <ul class="brand-list">
+          <li *ngFor="let model of vehicleModels" class="brand-item">{{ model.Model_Name }}</li>
+        </ul>
+      </cdk-virtual-scroll-viewport>
+    </mat-tab>
+  </mat-tab-group>
+</div>

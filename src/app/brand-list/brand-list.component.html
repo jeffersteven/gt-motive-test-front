@@ -1,0 +1,18 @@
+<h2>Marcas de vehículos</h2>
+
+<div [formGroup]="form">
+  <mat-form-field>
+    <mat-label>Buscar marca</mat-label>
+    <input matInput formControlName="searchText" placeholder="Buscar marca" class="search-input" (input)="onSearchChange($event)">
+    <mat-icon matSuffix>search</mat-icon>
+    <mat-hint>Incluye el texto a buscar</mat-hint>
+  </mat-form-field>
+</div>
+
+<cdk-virtual-scroll-viewport itemSize="itemSize" class="scroll-viewport">
+  <ul class="brand-list">
+    <li *cdkVirtualFor="let brand of filteredBrands; let i = index;" (click)="navigateToBrandDetails(brand.Make_ID)" class="brand-item">
+      {{ brand.Make_Name }}
+    </li>
+  </ul>
+</cdk-virtual-scroll-viewport>
